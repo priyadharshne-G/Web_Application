@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+</head>
+<body>
+
+<h2>Student Login Form</h2>
+
+<form onsubmit="return validate()">
+    Student ID:
+    <input type="text" id="student"><br><br>
+
+    Password:
+    <input type="password" id="password"><br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function validate() {
+    let student = document.getElementById("student").value;
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("msg");
+
+    if (student == "" || password == "") {
+        message.innerHTML = "All fields are required";
+        return false;
+    }
+
+    if (student.length < 4) {
+        message.innerHTML = "Student ID must have at least 4 characters";
+        return false;
+    }
+
+    if (password.length < 6) {
+        message.innerHTML = "Password must be at least 6 characters";
+        return false;
+    }
+
+    message.style.color = "green";
+    message.innerHTML = "Login successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>

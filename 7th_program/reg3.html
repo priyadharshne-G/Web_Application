@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Show Hide</title>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #fef3c7;
+    }
+
+    .box {
+      width: 380px;
+      margin: 50px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      background: #f59e0b;
+      color: white;
+      cursor: pointer;
+    }
+
+    .register {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .message {
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function App() {
+
+  const [password, setPassword] = React.useState("");
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+
+  function submitForm(e) {
+    e.preventDefault();
+
+    if (password.length < 6) {
+      setMessage("Password must contain 6 characters");
+    } else {
+      setMessage("Registration Successful!");
+    }
+  }
+
+  return (
+    <div className="box">
+
+      <h2>Create Account</h2>
+
+      <form onSubmit={submitForm}>
+
+        <label>Password</label>
+
+        <input
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password"
+        />
+
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? "Hide Password" : "Show Password"}
+        </button>
+
+        <button className="register" type="submit">
+          Register
+        </button>
+
+        {message && (
+          <p className="message">{message}</p>
+        )}
+
+      </form>
+
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root"))
+  .render(<App />);
+
+</script>
+
+</body>
+</html>

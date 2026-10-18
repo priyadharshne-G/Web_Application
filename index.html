@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advanced Web Application Lab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 55px 20px;
+            background: linear-gradient(135deg, #1e3a8a, #6d28d9, #0f766e);
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 17px;
+            color: #e2e8f0;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 6px 15px;
+            border: 1px solid #ffffff66;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        nav {
+            background: #111827;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #334155;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 35px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            color: #38bdf8;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .program {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .program:hover {
+            transform: translateY(-6px);
+            border-color: #38bdf8;
+        }
+
+        .program-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #334155;
+            border-radius: 12px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .program h3 {
+            color: #f8fafc;
+            font-size: 19px;
+        }
+
+        .number {
+            color: #38bdf8;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .program p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 9px 14px;
+            border-radius: 8px;
+            background: #334155;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 13px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .links a:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .info {
+            margin-top: 35px;
+            padding: 25px;
+            text-align: center;
+            background: #172554;
+            border: 1px solid #1d4ed8;
+            border-radius: 14px;
+        }
+
+        .info h3 {
+            color: #93c5fd;
+            margin-bottom: 8px;
+        }
+
+        .info p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: #020617;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        footer strong {
+            color: #38bdf8;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .program {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <span class="badge">ACADEMIC PROJECT PORTAL</span>
+
+        <h1>Web Application Lab</h1>
+
+        <p>Learn • Build • Experiment • Innovate</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">About</a>
+    </nav>
+
+    <main class="container" id="home">
+
+        <div class="section-title" id="programs">
+            <h2>Practical Programs</h2>
+            <p>Explore all 8 laboratory categories and their practical exercises.</p>
+        </div>
+
+        <div class="program-grid">
+
+            <!-- PROGRAM 1 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">🌐</div>
+                    <div>
+                        <span class="number">Program 01</span>
+                        <h3>Static Web Pages</h3>
+                    </div>
+                </div>
+
+                <p>Create structured web pages using HTML and CSS.</p>
+
+                <div class="links">
+                    <a href="1st_program/static1.html">Code 01 ↗</a>
+                    <a href="1st_program/static2.html">Code 02 ↗</a>
+                    <a href="1st_program/static3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 2 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">🎨</div>
+                    <div>
+                        <span class="number">Program 02</span>
+                        <h3>CSS Web Design</h3>
+                    </div>
+                </div>
+
+                <p>Practice layouts, colors, typography, and styling.</p>
+
+                <div class="links">
+                    <a href="2nd_program/css1.html">Code 01 ↗</a>
+                    <a href="2nd_program/css2.html">Code 02 ↗</a>
+                    <a href="2nd_program/css3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 3 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">✅</div>
+                    <div>
+                        <span class="number">Program 03</span>
+                        <h3>JavaScript Validation</h3>
+                    </div>
+                </div>
+
+                <p>Validate user inputs and display meaningful messages.</p>
+
+                <div class="links">
+                    <a href="3rd_program/java1.html">Code 01 ↗</a>
+                    <a href="3rd_program/java2.html">Code 02 ↗</a>
+                    <a href="3rd_program/java3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 4 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">⚙️</div>
+                    <div>
+                        <span class="number">Program 04</span>
+                        <h3>DOM Manipulation</h3>
+                    </div>
+                </div>
+
+                <p>Modify HTML elements dynamically with JavaScript.</p>
+
+                <div class="links">
+                    <a href="4th_program/dom1.html">Code 01 ↗</a>
+                    <a href="4th_program/dom2.html">Code 02 ↗</a>
+                    <a href="4th_program/dom3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 5 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">⚛️</div>
+                    <div>
+                        <span class="number">Program 05</span>
+                        <h3>React Applications</h3>
+                    </div>
+                </div>
+
+                <p>Build interactive interfaces using React components.</p>
+
+                <div class="links">
+                    <a href="5th_program/jsx1.html">Code 01 ↗</a>
+                    <a href="5th_program/jsx2.html">Code 02 ↗</a>
+                    <a href="5th_program/jsx3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 6 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">🔗</div>
+                    <div>
+                        <span class="number">Program 06</span>
+                        <h3>React Props & State</h3>
+                    </div>
+                </div>
+
+                <p>Pass data between components and manage state.</p>
+
+                <div class="links">
+                    <a href="6th_program/props1.html">Code 01 ↗</a>
+                    <a href="6th_program/props2.html">Code 02 ↗</a>
+                    <a href="6th_program/props3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 7 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">📝</div>
+                    <div>
+                        <span class="number">Program 07</span>
+                        <h3>Student Registration</h3>
+                    </div>
+                </div>
+
+                <p>Design registration forms with organized input fields.</p>
+
+                <div class="links">
+                    <a href="7th_program/reg1.html">Code 01 ↗</a>
+                    <a href="7th_program/reg2.html">Code 02 ↗</a>
+                    <a href="7th_program/reg3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+            <!-- PROGRAM 8 -->
+            <section class="program">
+                <div class="program-header">
+                    <div class="icon">🔐</div>
+                    <div>
+                        <span class="number">Program 08</span>
+                        <h3>Login Interfaces</h3>
+                    </div>
+                </div>
+
+                <p>Create login screens with clear, accessible layouts.</p>
+
+                <div class="links">
+                    <a href="8th_program/log1.html">Code 01 ↗</a>
+                    <a href="8th_program/log2.html">Code 02 ↗</a>
+                    <a href="8th_program/log3.html">Code 03 ↗</a>
+                </div>
+            </section>
+
+        </div>
+
+        <section class="info" id="resources">
+            <h3>Laboratory Learning Hub</h3>
+            <p>
+                Practice every program, understand the code,
+                and improve your web development skills.
+                Each code link opens its corresponding HTML file.
+            </p>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <p><strong>Web Application Lab</strong></p>
+        <p>Academic Practical Programs | 2026</p>
+        <p>&copy; 2026 All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

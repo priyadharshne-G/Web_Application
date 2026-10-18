@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Hide Password</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0fdf4;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            width: 350px;
+            margin: 80px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #aaa;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function Password() {
+
+    const [show, setShow] = React.useState(false);
+
+    return (
+        <div className="card">
+
+            <h2>Password Application</h2>
+
+            <input
+                type={show ? "text" : "password"}
+                placeholder="Enter Password"
+            />
+
+            <br />
+
+            <button onClick={() => setShow(!show)}>
+                {show ? "Hide Password" : "Show Password"}
+            </button>
+
+        </div>
+    );
+}
+
+function App() {
+
+    return (
+        <div>
+            <h1>React Functional Component</h1>
+            <Password />
+        </div>
+    );
+}
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>

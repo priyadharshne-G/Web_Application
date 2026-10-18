@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step Counter</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2ff;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            width: 350px;
+            margin: 80px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #aaa;
+        }
+
+        .count {
+            font-size: 40px;
+            color: #4f46e5;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            background: #4f46e5;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function Counter() {
+
+    const [count, setCount] = React.useState(0);
+
+    return (
+        <div className="card">
+
+            <h2>Step Counter</h2>
+
+            <p className="count">{count}</p>
+
+            <button onClick={() => setCount(count + 5)}>
+                +5
+            </button>
+
+            <button onClick={() => setCount(count - 5)}>
+                -5
+            </button>
+
+            <button onClick={() => setCount(0)}>
+                Reset
+            </button>
+
+        </div>
+    );
+}
+
+function App() {
+    return (
+        <div>
+            <h1>React Functional Component</h1>
+            <Counter />
+        </div>
+    );
+}
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>

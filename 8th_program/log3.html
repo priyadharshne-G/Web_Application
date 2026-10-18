@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Mark Calculator</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #eff6ff;
+    }
+
+    .box {
+      width: 350px;
+      margin: 80px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px gray;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+
+    .result {
+      text-align: center;
+      color: #2563eb;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function MarkCalculator() {
+      const [mark1, setMark1] = React.useState("");
+      const [mark2, setMark2] = React.useState("");
+      const [mark3, setMark3] = React.useState("");
+      const [result, setResult] = React.useState("");
+
+      function calculate(e) {
+        e.preventDefault();
+
+        const total =
+          Number(mark1) + Number(mark2) + Number(mark3);
+
+        const average = total / 3;
+
+        setResult(
+          "Total: " + total +
+          " | Average: " + average.toFixed(2)
+        );
+      }
+
+      return (
+        <div className="box">
+          <h2>Student Mark Calculator</h2>
+
+          <form onSubmit={calculate}>
+            <input
+              type="number"
+              placeholder="Subject 1 Mark"
+              value={mark1}
+              onChange={(e) => setMark1(e.target.value)}
+            />
+
+            <input
+              type="number"
+              placeholder="Subject 2 Mark"
+              value={mark2}
+              onChange={(e) => setMark2(e.target.value)}
+            />
+
+            <input
+              type="number"
+              placeholder="Subject 3 Mark"
+              value={mark3}
+              onChange={(e) => setMark3(e.target.value)}
+            />
+
+            <button type="submit">Calculate</button>
+          </form>
+
+          <h3 className="result">{result}</h3>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root"))
+      .render(<MarkCalculator />);
+  </script>
+</body>
+</html>

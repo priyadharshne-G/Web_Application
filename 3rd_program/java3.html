@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form onsubmit="return validate()">
+    Name:
+    <input type="text" id="name"><br><br>
+
+    Email:
+    <input type="text" id="email"><br><br>
+
+    Message:
+    <textarea id="message"></textarea><br><br>
+
+    <button type="submit">Send Message</button>
+</form>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function validate() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let messageText = document.getElementById("message").value;
+    let message = document.getElementById("msg");
+
+    if (name == "" || email == "" || messageText == "") {
+        message.innerHTML = "All fields are required";
+        return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        message.innerHTML = "Enter a valid email";
+        return false;
+    }
+
+    if (messageText.length < 10) {
+        message.innerHTML = "Message must contain at least 10 characters";
+        return false;
+    }
+
+    message.style.color = "green";
+    message.innerHTML = "Message submitted successfully!";
+    return false;
+}
+</script>
+
+</body>
+</html>

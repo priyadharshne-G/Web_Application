@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Manager</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f3ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #7c3aed;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .count {
+            font-size: 35px;
+            font-weight: bold;
+            color: #7c3aed;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            background-color: #7c3aed;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #5b21b6;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function Student(props) {
+            const [marks, setMarks] = React.useState(50);
+
+            function increase() {
+                if (marks < 100) {
+                    setMarks(marks + 5);
+                }
+            }
+
+            function decrease() {
+                if (marks > 0) {
+                    setMarks(marks - 5);
+                }
+            }
+
+            function reset() {
+                setMarks(50);
+            }
+
+            return (
+                <div className="card">
+                    <h2>Student Information</h2>
+
+                    <p><b>Name:</b> {props.name}</p>
+                    <p><b>Department:</b> {props.department}</p>
+                    <p><b>Subject:</b> {props.subject}</p>
+
+                    <hr />
+
+                    <h2>Marks Manager</h2>
+                    <p className="count">{marks} / 100</p>
+
+                    <p>
+                        <b>Status:</b>{" "}
+                        {marks >= 40 ? "Pass" : "Fail"}
+                    </p>
+
+                    <button onClick={increase}>Add 5 Marks</button>
+                    <button onClick={decrease}>Subtract 5 Marks</button>
+                    <button onClick={reset}>Reset</button>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Student Marks Management</h1>
+
+                    <Student
+                        name="Arun"
+                        department="Computer Science"
+                        subject="JavaScript"
+                    />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(
+            document.getElementById("root")
+        );
+
+        root.render(<App />);
+
+    </script>
+</body>
+</html>

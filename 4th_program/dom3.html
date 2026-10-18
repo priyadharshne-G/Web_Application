@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Example 2</title>
+</head>
+<body>
+
+<h2>Enter Your Name</h2>
+
+<input type="text" id="name" placeholder="Enter your name">
+
+<p id="result"></p>
+
+<script>
+    const nameInput = document.getElementById("name");
+    const result = document.getElementById("result");
+
+    nameInput.addEventListener("input", function() {
+        result.textContent = "Hello, " + nameInput.value + "!";
+        result.style.color = "green";
+    });
+</script>
+
+</body>
+</html>
